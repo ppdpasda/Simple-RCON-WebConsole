@@ -37,7 +37,7 @@ def args_parser():
     parser = argparse.ArgumentParser(description='')
     parser.add_argument('--host', default='localhost', type=str, help='Your host which you specified in server.properties')
     parser.add_argument('--port', default=25575, type=int, help='Your rcon port which you specified in server.properties')
-    parser.add_argument('--password', default="Your rcon password which you specified in server.properties'", type=str, help='')
+    parser.add_argument('--password', default="12345", type=str, help='Your rcon password which you specified in server.properties')
     return parser.parse_args()
 
 args = args_parser()
