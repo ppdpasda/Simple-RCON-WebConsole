@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Minecraft RCON Console</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f8f8f8;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        header {
+            background-color: #4285f4;
+            padding: 10px;
+            width: 100%;
+            text-align: center;
+            color: #fff;
+            font-size: 24px;
+            position: fixed;
+            top: 0;
+        }
+
+        h1 {
+            text-align: center;
+            color: #4285f4;
+            margin-top: 60px;
+        }
+
+        form {
+            max-width: 400px;
+            width: 100%;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 16px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        button {
+            background-color: #4285f4;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #3367d6;
+        }
+
+        p {
+            margin-top: 16px;
+            font-weight: bold;
+        }
+
+        p.error {
+            color: #ff0000;
+        }
+
+        p.success {
+            color: #4caf50;
+        }
+    </style>
+</head>
+<body>
+<header>Minecraft RCON Console</header>
+<form action="/send_command" method="post">
+    <label for="command">Command:</label>
+    <input type="text" id="command" name="command" required>
+    <button type="submit">Send Command</button>
+</form>
+{% if error %}
+    <p class="error">{{ error }}</p>
+{% endif %}
+{% if response %}
+    <p class="success">{{ response }}</p>
+{% endif %}
+</body>
+</html>
